@@ -1,0 +1,73 @@
+.common-btn {
+  letter-spacing: 8px;
+  display: inline-block;
+  padding: 14px 60px;
+  border-radius: 25px;
+  border: 0;
+  outline: none; 
+  margin: 23%; 
+  font-size: 3vw;
+  position: relative;
+  color: black;
+  overflow: hidden;
+}
+.common-btn:active {
+	 transform: scale(0.8);
+}
+.common-btn.black {
+	background-color: white;
+}	
+.common-btn.black:hover {
+			color: #fff;
+			z-index: 3;
+			transition-delay: 1s;
+}
+.common-btn.black:before {
+	content: '';
+	position: absolute;
+	left: 60px;
+	top: 50%;
+	transform: translateY(-50%) scale(0.6);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	z-index: 1;
+	transition-property: left, transform;
+	transition-delay: 0s,0s;
+	transition-duration: 1s,.5s;
+	opacity: 0;
+}
+.common-btn.black:hover:before {
+	left: 10px;
+	transform: translateY(-50%) scale(50);
+	transition-delay: 0s,1s;
+	opacity: 1;
+	background: black;
+	z-index: -1;
+}
+.common-btn.black:after {
+	content: '';
+	position: absolute;
+	right: 50px;
+	top: 50%;
+	transform: translateY(-50%) scale(0.6);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	z-index: 1;
+	transition-property: right, transform;
+	transition-delay: 0s,0s;
+	transition-duration: 1s,.5s;
+	opacity: 0;
+}
+.common-btn.black:hover:after {
+	right: 10px;
+	transform: translateY(-50%) scale(50);
+	transition-delay: 0s,1s;
+	opacity: 1;
+	background: black;
+	z-index: -1;
+}
+*:focus{
+	outline:none !important
+}
