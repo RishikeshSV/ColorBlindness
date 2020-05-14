@@ -15,8 +15,6 @@ question.addEventListener('submit', function(e){
 	i = attribute.replace ( /[^\d.]/g, '' );
 	i++;
 	var out;
-	console.log(i+".");
-
 	if(i <= 39){
 		if(i >= 27){
 			out = $('input[name="options"]:checked').val()
@@ -33,7 +31,6 @@ question.addEventListener('submit', function(e){
 				two.style.display = "block";
 			}
 		}
-		console.log(out);
 		if(i!=39){
 			let link = "Images/Ishihara/" + i + ".jpg"
 			image.setAttribute("src", link);
@@ -41,5 +38,6 @@ question.addEventListener('submit', function(e){
 	}
 	if( i ==39 ){
 		document.querySelector('.card').style.display = "none";
+		alert("You're blind :)")
 	}
 });
