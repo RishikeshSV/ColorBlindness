@@ -18,14 +18,14 @@
 		    padding:0;
 		    margin:0;
 		}
-		#ans{
+		#ans1{
 			margin-bottom: 5%;
 			border: 1px solid black;
 		    border-radius: 7px 14px;
 		    outline: none;
 		    padding: 5%;
 		}
-		#ans:focus{
+		#ans1:focus{
 			background: #eee;
 		}
 	</style>
@@ -35,11 +35,37 @@
 
 
 	<div class="card" style="width: 25rem; margin: auto;text-align: center; margin-top: 5%">
-	  <img src="Images/Ishihara/1.jpg" class="card-img-top">
+	  <img id="image" src="Images/Ishihara/1.jpg" class="card-img-top w3-animate-zoom">
 	  <div class="card-body">
-	    <h5 class="card-title">Enter the number you see:</h5>
-	    <input id="ans" type="text"><br>
-	    <button class="btn btn-primary" style="outline: none;border: none;box-shadow: none;" href="#">Next</button>
+	    <form id="question">
+	    	<div id="one">
+	    		<h5 id="title" class="card-title">Enter the number you see:</h5>
+	    		<input id="ans1" type="text"><br>
+	    		<button class="btn btn-primary" type="submit" style="outline: none;border: none;box-shadow: none;" href="#">Next</button>
+	    	</div>
+	    	<div id="two" style="display: none;">
+	    		<h5 id="title" class="card-title">Enter the no. of lines you see:</h5>
+	    		<div  class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="options" id="option1" value="0">
+				  <label class="form-check-label" for="option1">
+				    0
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="options" id="option2" value="1">
+				  <label class="form-check-label" for="option2">
+				    1
+				  </label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="options" id="option3" value="2">
+				  <label class="form-check-label" for="option3">
+				    2
+				  </label>
+				</div><br>
+	    		<button class="btn btn-primary" type="submit" style="outline: none;border: none;box-shadow: none;margin-top: 5%;" href="#">Next</button>
+	    	</div>
+	    </form>
 	  </div>
 	</div>
 
@@ -80,7 +106,6 @@
 		//Preloader
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");
-			$('#instructions').modal('show');
 		});
 </script>
 	</script>
