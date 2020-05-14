@@ -1,12 +1,5 @@
 // var x = document.getElementsByClassName("congrats")[0].style.display;
 
-// if (x == "block") {
-// 	animateText();
-	
-// 	animateBlobs();
-// }
-
-
 
 
 $(function() {

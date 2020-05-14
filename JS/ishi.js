@@ -52,7 +52,7 @@ question.addEventListener('submit', function(e){
 			document.querySelector('#calres').style.display = "none";
 			$("body").attr('style', 'background-image: none !important;');
 			if(marks>33){
-				document.querySelector('.congrats').style.display = "block";
+				window.location.href = "congrats.html";
 			}else if(marks>24){
 				document.querySelector("#congratscontent").innerHTML = "You are slightly red-green color blind"
 				document.querySelector('.congrats').style.display = "block";
@@ -77,5 +77,6 @@ question.addEventListener('submit', function(e){
 				}
 			}
 		}
+		console.log(marks);
 	}
 });
