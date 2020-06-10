@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Blindness Game</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Geo&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="CSS/preloader.css">
+</head>
+<style type="text/css">
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+a{
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form .a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box .a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box .a .lines {
+  position: absolute;
+  display: block;
+}
+
+.login-box .a .one{
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box .a .two {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box .a .three{
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+.a{
+	outline: none;
+	background: none;
+	border: none;
+}
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box .a .four{
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100% !important;
+  }
+  50%,100% {
+    bottom: 100% !important;
+  }
+}
+
+
+.form-check{
+	color: lightgoldenrodyellow;
+	letter-spacing: 1px;
+}
+.form-check-input:checked ~ label{
+	color: #03e9f4;;
+}
+.title{
+	text-transform: uppercase;
+	color: white;
+	font-family: "Raleway";
+	letter-spacing: 2px;
+	font-weight: bolder;
+}
+
+</style>
+
+<body>
+
+	<div class="loader-wrapper"></div>
+    
+     
+	<div class="login-box">
+	  <form id="details">
+	    <div class="user-box">
+	      <input type="text" id="name" required>
+	      <label class="title">NAME</label>
+	    </div>
+	    <div class="user-box">
+	      <input type="number" id="age" step="1" min="5" required>
+	      <label class="title">AGE</label>
+	    </div>
+	    <div class="form-check m" style="margin-top: 15px;">
+		  <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+		  <label class="form-check-label" for="male">
+		    MALE
+		  </label>
+		</div>
+		<div class="form-check f" style="margin-top: 15px;">
+		  <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+		  <label class="form-check-label" for="female">
+		    FEMALE
+		  </label>
+		</div>
+		 <div class="title" style="margin: 10px 0; margin-top: 15px;"> Please check if you have any of the folllowing:</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="fam1" value="mom" >
+		  <label class="form-check-label" for="fam1">
+		    Does your mother have any kind of color blindness?
+		  </label>
+		</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="fam2" value="dad">
+		  <label class="form-check-label" for="fam2">
+		    Does your father have any kind of color blindness?
+		  </label>
+		</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="TB" value="tb">
+		  <label class="form-check-label" for="T.B.">
+		    Have you had T.B.?
+		  </label>
+		</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="PD" value="pd" >
+		  <label class="form-check-label" for="Parkinson's disease">
+		   Have you had Parkinson's disease?
+		  </label>
+		</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="query1" value="cat">
+		  <label class="form-check-label" for="query1">
+		    Have you had Cataract?
+		  </label>
+		</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="query2" value="etham">
+		  <label class="form-check-label" for="query2">
+		    Have you ever used Ethambutol?
+		  </label>
+		</div>
+		<div class="form-check" style="margin-top: 15px;">
+		  <input class="form-check-input q" type="checkbox" id="query3" value="tiag">
+		  <label class="form-check-label" for="query3">
+		    Have you ever used Tiagabine?
+		  </label>
+		</div>
+	    <input class="a" type="submit" value="I'm ready :)"/>
+	      <span class="lines one"></span>
+	      <span class="lines two"></span>
+	      <span class="lines three"></span>
+	      <span class="lines four"></span>
+	      <!-- I'm ready :)
+	    </a>  -->
+	  </form>
+	</div>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		//Preloader
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+
+
+		details = document.querySelector('#details')
+		details.reset();
+		
+		var bio = []
+		details.addEventListener('submit', (e) => {
+			e.preventDefault();
+			var name = details['name'].value;
+			var age = details['age'].value;
+			var gender = $('input[name="gender"]:checked').val();
+			$('input[type=checkbox]:checked').each(function(){
+			    bio.push($(this).val());
+			});
+
+			localStorage.setItem("name", name);
+			localStorage.setItem("age", age);
+			localStorage.setItem("gender", gender);
+			localStorage.setItem("bio", bio);
+			if(age >= 10){
+				window.location = "ishi.html"
+			}else if(age<10){
+				window.location = "ishiKids.html"
+			}
+			
+		})
+
+
+	</script>
+</body>
+</html>

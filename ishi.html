@@ -41,7 +41,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="instructionstitle" style="text-transform: uppercase;letter-spacing: 3px; font-weight: 300;">Ishihara 38 Plates CVD Test</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <button type="button" class="close" data-dismiss="modal" style="outline: none" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
@@ -121,6 +121,16 @@
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");
 		});
+
+
+		  name = localStorage.getItem("name")
+		  age = localStorage.getItem("age")
+		  gender = localStorage.getItem("gender")
+		  bio = localStorage.getItem("bio")
+			console.log(name)
+			console.log(age)
+			console.log(gender)
+			console.log(bio)
 </script>
 	</script>
 </body>
