@@ -41,7 +41,7 @@ ques.addEventListener('submit', function(e){
 				}
 			}
 			document.querySelector(".percent").innerHTML= marks;
-			if(marks<9){
+			if(marks<90){
 				document.querySelector(".lead").innerHTML= "You may have colour deficiency";
 			}else{
 				document.querySelector(".lead").innerHTML= "Normal color vision :) ";
