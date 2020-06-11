@@ -46,25 +46,25 @@ question.addEventListener('submit', function(e){
 	}
 	if( i ==39 ){
 		document.querySelector('.card').style.display = "none";
-		document.querySelector('#calres').style.display = "block";
-		document.querySelector('body').style.height = "100%";
-		setTimeout(function(){
-			document.querySelector('#calres').style.display = "none";
-			$("body").attr('style', 'background-image: none !important;');
-			if(marks>33){
-				window.location.href = "congrats.html";
-			}else if(marks>24){
-				document.querySelector("#congratscontent").innerHTML = "You are slightly red-green color blind"
-				document.querySelector('.congrats').style.display = "block";
-			}else if(marks>18){
-				document.querySelector("#congratscontent").innerHTML = " You are moderately red-green color blind "
-				document.querySelector('.congrats').style.display = "block";
-			}else{
-				document.querySelector("#congratscontent").innerHTML = " You have severe red-green color blindness! "
-				document.querySelector('.congrats').style.display = "block";
-			}
+		// document.querySelector('#calres').style.display = "block";
+		// document.querySelector('body').style.height = "100%";
+		// setTimeout(function(){
+		// 	document.querySelector('#calres').style.display = "none";
+		// 	$("body").attr('style', 'background-image: none !important;');
+		// 	if(marks>33){
+		// 		window.location.href = "congrats.html";
+		// 	}else if(marks>24){
+		// 		document.querySelector("#congratscontent").innerHTML = "You are slightly red-green color blind"
+		// 		document.querySelector('.congrats').style.display = "block";
+		// 	}else if(marks>18){
+		// 		document.querySelector("#congratscontent").innerHTML = " You are moderately red-green color blind "
+		// 		document.querySelector('.congrats').style.display = "block";
+		// 	}else{
+		// 		document.querySelector("#congratscontent").innerHTML = " You have severe red-green color blindness! "
+		// 		document.querySelector('.congrats').style.display = "block";
+		// 	}
 
-		}, 2000);
+		// }, 2000);
 		for(var a = 0;a<38;++a){
 			if(ans[a] == realans[a]){
 				marks += 1;
@@ -78,5 +78,12 @@ question.addEventListener('submit', function(e){
 			}
 		}
 		console.log(marks);
+		document.querySelector('.jumbotron').style.display="block"
+		document.querySelector('.marks').innerHTML=marks;
+		if(marks>30){
+			document.querySelector('.conclusion').innerHTML = "Normal color vision"
+		}else{
+			document.querySelector('.conclusion').innerHTML = "You failed the test, please continue playing to get a complete analysis."
+		}
 	}
 });
