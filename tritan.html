@@ -26,9 +26,32 @@
 <body style="background:black;">
 	<div class="loader-wrapper"></div>
 
-	
+	<div class="modal fade" id="instruction"  role="dialog" aria-labelledby="instructionstitle" aria-hidden="true" style="color: black;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="instructionstitle" style="text-transform: uppercase;letter-spacing: 3px; font-weight: 300;">Tritan Colour BlindnessS Test</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="showfun()"></button>
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body" style="font-family: 'Questrial', sans-serif;">
+				
+				
+				<p  style="font-weight: 600;">
+					How the test works:
+				</p>
+				<img src="Images/ctest/demotri.jpg" style="max-width: 300px; margin-left: 5rem; margin-bottom: 2rem;">
+				<p>
+					For each plate you have to either click on the gap or if you dont see any gap then click on the button 'CANNOT SEE THE GAP'.
+				</p>
+				<button class="btn btn--stripe btn--radius" data-dismiss="modal" style="margin: auto;" onclick="showfun()">NEXT</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
 
-	<div id="cardd" class="card" style="width: 35rem; margin: auto;text-align: center; margin-top: 5%; background: gray;">
+	<div id="cardd" class="card" style="width: 35rem; margin: auto;text-align: center; margin-top: 5%; background: gray; display: none;">
 		<img id="image" src="Images/ctest/tritan1.jpg" style="margin: 20px;" usemap="#map1">
       
       <map name="map1">
