@@ -29,11 +29,22 @@
 
 	
 
-	<div class="card" style="width: 25rem; margin: auto;text-align: center; margin-top: 5%;">
-	  <img id="image" src="Images/ctest/tritan1.jpg" style="border: 2px solid green;" usemap="#map1">
+	<div class="card" style="width: 35rem; margin: auto;text-align: center; margin-top: 5%;">
+		<img id="image" src="Images/ctest/tritan1.jpg" style="border: 2px solid green;" usemap="#map1">
       
       <map name="map1">
-          <area shape="rect" coords="250,340 ,410,630"  onclick="myfun()">
+		  <area id="correctshape" shape="rect" coords="335,335 ,470,470" alt="hiii" href="#" onclick="myfun(100)">
+		  
+		  <area shape="poly" coords="0,0,150,0,240,240,0,150" alt="Sun" href="#" onclick="myfun(1)">
+		  <area shape="poly" coords="150,0,350,0,250,240" alt="Sun" href="#" onclick="myfun(2)">
+		  <area shape="poly" coords="350,0,500,0,500,150,260,240" alt="Sun" href="#" onclick="myfun(3)">
+		  <area shape="poly" coords="500,150,500,350,260,250" alt="Sun" href="#" onclick="myfun(4)">
+		  <area shape="poly" coords="500,350,500,500,350,500,260,260" alt="Sun" href="#" onclick="myfun(5)">
+		  <area shape="poly" coords="350,500,150,500,250,260" alt="Sun" href="#" onclick="myfun(6)">
+		  <area shape="poly" coords="150,500,0,500,0,350,240,260" alt="Sun" href="#" onclick="myfun(7)">
+		  <area shape="poly" coords="0,350,0,150,240,250" alt="Sun" href="#" onclick="myfun(8)">
+
+          
       </map>
       
       <div id="showd" class="card-body" style="display: none;">
