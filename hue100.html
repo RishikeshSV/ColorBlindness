@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>FM 100 Hue test</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Changa:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="CSS/preloader.css">
+	<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+	<style type="text/css">
+		li{
+		  list-style:none;
+		  display: inline-block;
+		}
+		ul{
+			padding: 0;
+			text-align: center;
+		}
+		li p{
+		  margin:0px;
+		  padding:30px;
+		}
+		.first, .second, .third, .fourth{
+			margin-top: 10%;
+			text-align: center;
+		}
+		.results{
+			width: 50%;
+			margin: auto;
+			margin-top: 13%
+		}
+		li p:hover{
+		  cursor:move;
+		}
+		/*button*/
+		.pulse:hover,.pulse:focus {
+		  -webkit-animation: pulse 1s;
+		          animation: pulse 1s;
+		  box-shadow: 0 0 0 2em rgba(0, 0, 0, 0);
+		}
+
+		@-webkit-keyframes pulse {
+		  0% {
+		    box-shadow: 0 0 0 0 var(--hover);
+		  }
+		}
+
+		@keyframes pulse {
+		  0% {
+		    box-shadow: 0 0 0 0 var(--hover);
+		  }
+		}
+		.pulse {
+		  --color: white;
+		  --hover: pink;
+		}
+
+		button {
+		  color: var(--color);
+		  -webkit-transition: 0.25s;
+		  transition: 0.25s;
+		  outline: none
+		}
+		button:hover, button:focus {
+		  border-color: var(--hover);
+		  color: pink;
+		}
+		button {
+		  border: 2px solid;
+		  font: inherit;
+		  line-height: 1;
+		  margin: 0.5em;
+		  padding: 1em 2em;
+		  background: none;
+		  letter-spacing: 8px;
+		}
+	</style>
+</head>
+<body style="background-color: black">
+	<div class="loader-wrapper"></div>
+
+
+	<div class="modal fade"  id="instructions" tabindex="-1" role="dialog" aria-labelledby="instructionstitle" aria-hidden="true" style="color: black;">
+		<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+		    <div class="modal-content">
+			    <div class="modal-header">
+			        <h5 class="modal-title" id="instructionstitle" style="text-transform: uppercase;letter-spacing: 3px; font-weight: 300;">FM 100 HUE TEST</h5>
+			        <button type="button" class="close" style="outline: none" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			    </div>
+			    <div class="modal-body" style="font-family: 'Questrial', sans-serif;">
+			      	<p>
+			      		The Farnsworth-Munsell 100 hue test is one of the most famous color vision tests available. It belongs to the group of hue discrimination, also called arrangement tests. 
+			      	</p>	
+			      	<p>
+			      		 The overall error score relates more or less to the severity of your color vision deficiency. 
+			      		 It could be shown that highly motivated people can improve their result up to 30% and if you get to know the test, your result will also improve to a certain degree.
+			      	</p>
+			      	<p  style="font-weight: 600;">
+			      		How the test works:
+			      	</p>
+			      	<p>
+			      		The aim of the test is to order the shown color plates in the correct order—any misplacement can point to some sort of color vision deficiency. 
+			      		So all you need to do is drag and drop the color tiles according to their hue levels as you see it.
+			      		<br><strong> Each color hue at the polar end of a row is fixed in position, to serve as an anchor. Each hue tile between the anchors can be adjusted as the observer sees fit.</strong>
+			      	</p>
+			      	<p>
+			      		Hit next, once you're satisfied with the arrangement!
+			      	</p>
+			    </div>
+		  	</div>
+		</div>
+	</div>
+
+	<!-- alert -->
+	<div class="alert alert-warning alert-dismissible fade show" style="text-align: center; width: 40%;margin: auto;margin-top: 5%;font-family: 'Changa', sans-serif;letter-spacing: 2px;font-size: 1.1rem;" role="alert">
+	  Remeber that <strong>the <h2 style="display: inline-block;">FIRST</h2> and <h2 style="display: inline-block;">LAST</h2> tile are <h2 style="display: inline-block;">FIXED</strong><br></h2> for your reference.
+	  <button type="button" class="close" data-dismiss="alert" style="padding: 0" aria-label="Close">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+
+
+	<!-- first row -->
+	<div class="first">
+		<ul>
+		    <li class="li1">
+		      <p style="background-color: #ac7773;" id="one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #9e8449" id="two"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a47b47" id="three"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #aa7468" id="four"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #ab746d;" id="five"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a37752;" id="six"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #a27554" id="seven"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a37b48" id="eight"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #aa746a" id="nine"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a17a51;" id="ten"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9c8a4c;" id="eleven"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #ab7366" id="twelve"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a3735f" id="thirteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9a8a4c" id="fourteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a18148;" id="fifteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #948a4c;" id="sixteen"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #998347" id="seventeen"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a47259" id="eighteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a67161" id="nineteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a27355;" id="twenty"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9f7e48;" id="twenty_one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #8f8c49;" id="twenty_two"></p>              
+		  	</li>
+		</ul>
+		<div class="buttons">
+			<button class="pulse firstbutton">NEXT</button>
+		</div>
+	</div>
+
+
+	<!-- second row -->
+	<div class="second" style="display: none">
+		<ul>
+		    <li class="li1">
+		      <p style="background-color: #8f8b4b;" id="one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #6b9871" id="two"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #699973" id="three"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #549987" id="four"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #7a956a;" id="five"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #589681;" id="six"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #7e9567" id="seven"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #819162" id="eight"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #7e9666" id="nine"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #75956c;" id="ten"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #89905a;" id="eleven"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #71986c" id="twelve"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #609875" id="thirteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #569685" id="fourteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #589784;" id="fifteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #5b977e;" id="sixteen"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #8b9058" id="seventeen"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #689a77" id="eighteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #869262" id="nineteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #5a947b;" id="twenty"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #8e8f56;" id="twenty_one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #54968a;" id="twenty_two"></p>              
+		  	</li>
+		</ul>
+		<div class="buttons">
+			<button class="pulse secondbutton">NEXT</button>
+		</div>
+	</div>
+
+
+	<!-- third row -->
+	<div class="third" style="display: none">
+		<ul>
+		    <li class="li1">
+		      <p style="background-color: #549688;" id="one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #7191a8" id="two"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #53978c" id="three"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #758da9" id="four"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #5298a0;" id="five"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #728daa;" id="six"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #4a9898" id="seven"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #4b9892" id="eight"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #6696a4" id="nine"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #6c92a9;" id="ten"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #5497a0;" id="eleven"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #50978f;" id="twelve"></p>              
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #7989aa" id="thirteen"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #6b8da6" id="fourteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #6792a5" id="fifteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #4c9898;" id="sixteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #7a85a3;" id="seventeen"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #4f9a9d" id="eighteen"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #6095a5" id="nineteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #449994" id="twenty"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #5956a3;" id="twenty_one"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #8188a5;" id="twenty_two"></p>
+		    </li>
+		</ul>
+		<div class="buttons">
+			<button class="pulse thirdbutton">NEXT</button>
+		</div>
+	</div>
+
+
+	<!-- fourth row -->
+	<div class="fourth" style="display: none">
+		<ul>
+		    <li class="li1">
+		      <p style="background-color: #8188a5;" id="one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #ac757a" id="two"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9d7c91" id="three"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9f8298" id="four"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a47c94;" id="five"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a77b8c;" id="six"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #8887a7" id="seven"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #8c87a5" id="eight"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #ad7882" id="nine"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #a97275;" id="ten"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #aa7884;" id="eleven"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #a87989" id="twelve"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #98849d" id="thirteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #aa757d" id="fourteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #8e88a4;" id="fifteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #94869f;" id="sixteen"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #a77e90" id="seventeen"></p>                 
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9187a2" id="eighteen"></p>             
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9a8197" id="nineteen"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #8489a6;" id="twenty"></p>               
+		  	</li>
+		    <li class="li1">
+		      <p style="background-color: #9886a0;" id="twenty_one"></p>
+		    </li>
+		    <li class="li1">
+		      <p style="background-color: #ad7775;" id="twenty_two"></p>              
+		  	</li>
+		</ul>
+		<div class="buttons">
+			<button class="pulse fourthbutton">NEXT</button>
+		</div>
+	</div>
+
+	<!-- results -->
+	<div class="card results" style="display: none;font-family: 'Abel';text-align: center; ">
+	  <div style="letter-spacing: 2px;font-size: xxx-large;" class="card-header">
+	    RESULTS
+	  </div>
+	  <div class="card-body">
+	    <h5 class="card-title">Marks using span element<span class="score"></span></h5>
+	    <p class="card-text">some conclusion using span element<span class="analysis"></span></p>
+	    <a href="#" style="margin-right: 10px; width: 50% " class="btn btn-outline-primary">FINAL RESULTS(COMPLETE ANALYSIS)</a>
+	    <a href="#" style="width: 30% " class="btn btn-outline-dark">BONUS CHALLENGE</a>
+	  </div>
+	</div>
+	
+		
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+	<script type="text/javascript" src="JS/fmhue.js"></script>
+
+
+	<script type="text/javascript">
+		//Preloader
+		$(window).on("load",function(){
+			$(".loader-wrapper").fadeOut("slow");
+		});
+		  name = localStorage.getItem("name")
+		  age = localStorage.getItem("age")
+		  gender = localStorage.getItem("gender")
+		  bio = localStorage.getItem("bio")
+	</script>
+</body>
+</html>
