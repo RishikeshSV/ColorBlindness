@@ -1,7 +1,16 @@
-const row_one = []; //real answer of row 1 (in terms of their id - just like row1 that user inputs)
-const row_two = []; //real answer of row 2  (in terms of their id - just like row2 that user inputs)
-const row_three = []; //real answer of row 3 (in terms of their id - just like row3 that user inputs)
-const row_four = []; //real answer of row 4 (in terms of their id - just like row4 that user inputs)
+const row_one = ['one','five','nine','twelve','four','nineteen','thirteen','eighteen','twenty','seven','six','ten','eight','three',
+'twetny_one','fifteen','two','seventeen','fourteen','eleven','sixteen','twenty_two']; //real answer of row 1 (in terms of their id - just like row1 that user inputs)
+const row_two = ['one','twenty_one','seventeen','eleven','nineteen','eight','seven','nine','five','ten','twelve','two','three',
+'eighteen','thirteen','twenty','sixteen','four','fourteen','six','fifteen','twenty_two']; //real answer of row 2  (in terms of their id - just like row2 that user inputs)
+const row_three = ['one','three','twelve','eight','sixteen','seven','twenty','eighteen','five','eleven','nineteen','nine','fifteen',
+'ten','fourteen','two','six','four','thirteen','seventeen','twenty_one','twenty_two']; //real answer of row 3 (in terms of their id - just like row3 that user inputs)
+const row_four = ['one','twenty','seven','eight','fifteen','eighteen','sixteen','twenty_one','thirteen','nineteen','four','three',
+'five','seventeen','six','twelve','eleven','nine','ten','fourteen','two','twenty_two']; //real answer of row 4 (in terms of their id - just like row4 that user inputs)
+var scorer1 = 0;
+var scorer2 = 0;
+var scorer3 = 0;
+var scorer4 = 0;
+
 $('#instructions').modal('show');
 var items = document.querySelectorAll('.li1');
 driver(items);
@@ -18,8 +27,15 @@ document.querySelector(".firstbutton").addEventListener('click',function(e){
   var eles = document.querySelectorAll('.li1>p'); 
   for(var i=0;i<22;i++){
     row1.push(eles[i].id);
+
+    if(row1[i]==row_one[i]){
+      scorer1+=1;
+    }
+
   }
-  console.log('ROW 1:\n'+row1);
+  // console.log('ROW 1:\n'+row1);
+  console.log('Score r1: '+scorer1);
+
 })
 
 
@@ -35,8 +51,12 @@ document.querySelector(".secondbutton").addEventListener('click',function(e){
   var eles = document.querySelectorAll('.li2>p'); 
   for(var i=0;i<22;i++){
     row2.push(eles[i].id);
+
+    if(row2[i]==row_two[i]){
+      scorer2+=1;
+    }
   }
-  console.log('ROW 2:\n'+row2);
+  console.log('Score r2: '+scorer2);
 })
 
 
@@ -52,8 +72,12 @@ document.querySelector(".thirdbutton").addEventListener('click',function(e){
   var eles = document.querySelectorAll('.li3>p'); 
   for(var i=0;i<22;i++){
     row3.push(eles[i].id);
+    
+    if(row3[i]==row_three[i]){
+      scorer3+=1;
+    }
   }
-  console.log('ROW 3:\n'+row3);
+  console.log('Score r3: '+scorer3);
 })
 
 
@@ -68,11 +92,43 @@ document.querySelector(".fourthbutton").addEventListener('click',function(e){
   var eles = document.querySelectorAll('.li4>p'); 
   for(var i=0;i<22;i++){
     row4.push(eles[i].id);
+    
+    if(row4[i]==row_four[i]){
+      scorer4+=1;
+    }
   }
-  console.log('ROW 4:\n'+row4);
+  console.log('Score r4: '+scorer4);
 
   //compare row_1 with row1 for points
+  var scorerg = scorer1+scorer4;
+  var scoreby = scorer2+scorer3;
+  console.log('rg : '+scorerg);
+  console.log('by: '+scoreby);
+
+  if(scorerg<=12){
+    document.getElementById('scorerg').innerText = 'Severe'
+  }
+  else if(scorerg<=30){
+    document.getElementById('scorerg').innerText = 'Mild'
+  }
+  else{
+    document.getElementById('scorerg').innerText = 'Normal'
+  }
+
+  
+  if(scoreby<=12){
+    document.getElementById('scoreby').innerText = 'Severe'
+  }
+  else if(scoreby<=30){
+    document.getElementById('scoreby').innerText = 'Mild'
+  }
+  else{
+    document.getElementById('scoreby').innerText = 'Normal'
+  }
+
+
 })
+
 
 
 
