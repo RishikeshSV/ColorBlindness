@@ -19,8 +19,10 @@ if(bio=='mom' || bio[0]=='dad'){
 	document.querySelector('#severe').innerHTML="Hey "+ name + ",<br>Considering that you're "+age+"year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
 
 }
+
 var rgavg = parseFloat(ishi + fmrg)/2;
 var byavg = parseFloat(tritan + fmby)/2;
+
 
 setTimeout(function(){
 	document.querySelector('#calres').style.display = "none";
@@ -90,14 +92,16 @@ setTimeout(function(){
 			}
 		}else{
 			document.querySelector('#congratscontent').style.display="block";
-			document.querySelector('#results').style.position="static";
-			document.querySelector('#results').style.marginTop="200px";
+			document.querySelector('#congratscontent').style.position="static";
+			document.querySelector('#congratscontent').style.marginTop="200px";
+			document.querySelector('#congratscontent').style.fontSize="30px";
 			if (rgavg>byavg) {
 				document.querySelector('#congratscontent').innerHTML = "Our results indicate that you may have mild Deuternaopia (red-green). We recommend you to consult an Opthalmologist ";
-			}else{
+			}else if(rgavg<byavg){
 				document.querySelector('#congratscontent').innerHTML = "Our results indicate that you may have mild Tritanopia (blue-yellow). We recommend you to consult an Opthalmologist ";
+			}else{
+				document.querySelector('#congratscontent').innerHTML = "Our results indicate that you may have mild Deuternaopia (red-green) and Tritanopia (blue-yellow). We recommend you to consult an Opthalmologist ";
 			}
-			document.querySelector('#congratscontent').style.fontSize = "50px";
 		}
 	}			
 }, 2000);
