@@ -312,9 +312,13 @@ a{
 			localStorage.setItem("age", age);
 			localStorage.setItem("gender", gender);
 			localStorage.setItem("bio", bio);
-			if(age >= 10){
+			localStorage.removeItem('Ishi');
+			localStorage.removeItem('IshiKids');
+			localStorage.removeItem('Tritan');
+
+			if(age > 6){
 				window.location = "ishi.html"
-			}else if(age<10){
+			}else{
 				window.location = "ishiKids.html"
 			}
 			

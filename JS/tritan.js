@@ -44,6 +44,7 @@ function myfun(i){
         $("#cardd").fadeOut(5000);
 
         document.getElementById('score').innerText = score;
+        localStorage.setItem("Tritan", score);
 
         if(Number(score)<=3){
             document.getElementById('cb').innerText = 'You have severe colour blindness!!!' ;
@@ -58,6 +59,18 @@ function myfun(i){
         $("#card2").fadeIn();
         $("#card2").fadeIn("slow");
         $("#card2").fadeIn(3000);
+        document.querySelector('#tritan-button').addEventListener('click',function(e){
+            if(localStorage.getItem("Tritan")>6){
+                if(localStorage.getItem("Ishi")>30 || localStorage.getItem("IshiKids")>=80){
+                    window.location.href="congrats.html"
+                }
+                else{
+                    window.location.href="hue100.html"
+                }
+            }else{
+                window.location.href="hue100.html"
+            }
+        })
     }
     
     

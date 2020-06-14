@@ -41,6 +41,7 @@ ques.addEventListener('submit', function(e){
 				}
 			}
 			document.querySelector(".percent").innerHTML= marks;
+			localStorage.setItem("IshiKids", marks);
 			if(marks<80){
 				document.querySelector(".lead").innerHTML= "You may have red-green colour deficiency. Please continue playing to get a complete analysis.";
 			}else{

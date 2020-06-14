@@ -1,17 +1,36 @@
 // var x = document.getElementsByClassName("congrats")[0].style.display;
 
+		setTimeout(function(){
+			document.querySelector('#calres').style.display = "none";
+			$("body").attr('style', 'background-image: none !important;');
+			document.querySelector('.congrats').style.display = "block";			
+			// if(marks>33){
+			// 	window.location.href = "congrats.html";
+			// }else if(marks>24){
+			// 	document.querySelector("#congratscontent").innerHTML = "You are slightly red-green color blind"
+			// 	document.querySelector('.congrats').style.display = "block";
+			// }else if(marks>18){
+			// 	document.querySelector("#congratscontent").innerHTML = " You are moderately red-green color blind "
+			// 	document.querySelector('.congrats').style.display = "block";
+			// }else{
+			// 	document.querySelector("#congratscontent").innerHTML = " You have severe red-green color blindness! "
+			// 	document.querySelector('.congrats').style.display = "block";
+			// }
 
+		}, 2000);
 
 $(function() {
-	var numberOfStars = 200;
+	setTimeout(function(){
+		var numberOfStars = 200;
 	
-	for (var i = 0; i < numberOfStars; i++) {
-	  $('.congrats').append('<div class="blob fa fa-star ' + i + '"></div>');
-	}	
+		for (var i = 0; i < numberOfStars; i++) {
+		  $('.congrats').append('<div class="blob fa fa-star ' + i + '"></div>');
+		}	
 
-	animateText();
-	
-	animateBlobs();
+		animateText();
+		
+		animateBlobs();
+	}, 2000)
 });
 
 $('.congrats').click(function() {
