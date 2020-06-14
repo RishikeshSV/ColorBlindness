@@ -44,15 +44,12 @@ function myfun(i){
         $("#cardd").fadeOut(5000);
 
         document.getElementById('score').innerText = score;
-        localStorage.setItem("Tritan", score);
+        _score = (((score+10)/20)*100).toFixed(2)
+        localStorage.setItem("Tritan", _score);
 
         if(Number(score)<=3){
-            document.getElementById('cb').innerText = 'You may have severe blue-yellow colour deficiency. Please continue playing to get a complete analysis."' ;
-        }
-        else if(Number(score)>3 && Number(score)<7){
-            document.getElementById('cb').innerText = 'You may have mild blue-yellow colour blindness!'
-        }
-        else{
+            document.getElementById('cb').innerText = 'You may have blue-yellow colour deficiency. Please continue playing to get a complete analysis.' ;
+        }else{
             document.getElementById('cb').innerText = 'Normal color vision :)'
         }
 
@@ -60,8 +57,8 @@ function myfun(i){
         $("#card2").fadeIn("slow");
         $("#card2").fadeIn(3000);
         document.querySelector('#tritan-button').addEventListener('click',function(e){
-            if(localStorage.getItem("Tritan")>6){
-                if(localStorage.getItem("Ishi")>30 || localStorage.getItem("IshiKids")>=80){
+            if(localStorage.getItem("Tritan")>=80){
+                if(localStorage.getItem("Ishi")>=80 || localStorage.getItem("IshiKids")>=80){
                     window.location.href="congrats.html"
                 }
                 else{

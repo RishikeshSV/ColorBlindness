@@ -216,7 +216,7 @@ a{
 	      <label class="title">NAME</label>
 	    </div>
 	    <div class="user-box">
-	      <input type="number" id="age" step="1" min="5" required>
+	      <input type="number" id="age" step="1" min="3" required>
 	      <label class="title">AGE</label>
 	    </div>
 	    <div class="form-check m" style="margin-top: 15px;">
@@ -293,7 +293,7 @@ a{
 		$(window).on("load",function(){
 			$(".loader-wrapper").fadeOut("slow");
 		});
-
+		localStorage.clear()
 
 		details = document.querySelector('#details')
 		details.reset();
@@ -307,16 +307,12 @@ a{
 			$('input[type=checkbox]:checked').each(function(){
 			    bio.push($(this).val());
 			});
-
 			localStorage.setItem("name", name);
 			localStorage.setItem("age", age);
 			localStorage.setItem("gender", gender);
 			localStorage.setItem("bio", bio);
-			localStorage.removeItem('Ishi');
-			localStorage.removeItem('IshiKids');
-			localStorage.removeItem('Tritan');
 
-			if(age > 6){
+			if(age >= 6){
 				window.location = "ishi.html"
 			}else{
 				window.location = "ishiKids.html"

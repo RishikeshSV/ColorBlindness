@@ -104,28 +104,30 @@ document.querySelector(".fourthbutton").addEventListener('click',function(e){
   var scoreby = scorer2+scorer3;
   console.log('rg : '+scorerg);
   console.log('by: '+scoreby);
-  localStorage.set("rg",scorerg);
-  localStorage.set("by",scoreby);
+  _scorerg = ((scorerg/44)*100).toFixed(2)
+  localStorage.setItem("rg",_scorerg);
+  _scoreby = ((scoreby/44)*100).toFixed(2)
+  localStorage.setItem("by",_scoreby);
 
   if(scorerg<=12){
-    document.getElementById('scorerg').innerText = 'Severe'
+    document.getElementById('scorerg').innerText = 'Severe' +'(' + ((scorerg/44)*100).toFixed(2) + '%)'
   }
   else if(scorerg<=35){
-    document.getElementById('scorerg').innerText = 'Mild'
+    document.getElementById('scorerg').innerText = 'Mild' +'(' + ((scorerg/44)*100).toFixed(2) + '%)'
   }
   else{
-    document.getElementById('scorerg').innerText = 'Normal'
+    document.getElementById('scorerg').innerText = 'Normal' +'(' + ((scorerg/44)*100).toFixed(2) + '%)'
   }
 
   
   if(scoreby<=12){
-    document.getElementById('scoreby').innerText = 'Severe'
+    document.getElementById('scoreby').innerText = 'Severe'+'(' + ((scoreby/44)*100).toFixed(2) + '%)'
   }
   else if(scoreby<=35){
-    document.getElementById('scoreby').innerText = 'Mild'
+    document.getElementById('scoreby').innerText = 'Mild'+'(' + ((scoreby/44)*100).toFixed(2) + '%)'
   }
   else{
-    document.getElementById('scoreby').innerText = 'Normal'
+    document.getElementById('scoreby').innerText = 'Normal'+'(' + ((scoreby/44)*100).toFixed(2) + '%)'
   }
 
 

@@ -61,7 +61,8 @@ question.addEventListener('submit', function(e){
 		console.log(marks);
 		document.querySelector('.jumbotron').style.display="block"
 		document.querySelector('.marks').innerHTML=marks;
-		localStorage.setItem("Ishi", marks);
+		_marks = ((marks/38)*100).toFixed(2);
+		localStorage.setItem("Ishi", _marks);
 		if(marks>30){
 			document.querySelector('.conclusion').innerHTML = "Normal color vision"
 		}else{
