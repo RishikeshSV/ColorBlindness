@@ -43,7 +43,9 @@ ques.addEventListener('submit', function(e){
 			document.querySelector(".percent").innerHTML= marks;
 			localStorage.setItem("IshiKids", marks);
 			if(marks<80){
-				document.querySelector(".lead").innerHTML= "You may have red-green colour deficiency. Please continue playing to get a complete analysis.";
+				document.querySelector(".lead").innerHTML= "You may have severe red-green colour deficiency. Please continue playing to get a complete analysis.";
+			}else if(marks>50){
+				document.querySelector(".lead").innerHTML= "You may have mild red-green colour deficiency.";
 			}else{
 				document.querySelector(".lead").innerHTML= "Normal color vision :) ";
 			}

@@ -47,13 +47,13 @@ function myfun(i){
         localStorage.setItem("Tritan", score);
 
         if(Number(score)<=3){
-            document.getElementById('cb').innerText = 'You have severe colour blindness!!!' ;
+            document.getElementById('cb').innerText = 'You may have severe blue-yellow colour deficiency. Please continue playing to get a complete analysis."' ;
         }
         else if(Number(score)>3 && Number(score)<7){
-            document.getElementById('cb').innerText = 'You have mild colour blindness!!!'
+            document.getElementById('cb').innerText = 'You may have mild blue-yellow colour blindness!'
         }
         else{
-            document.getElementById('cb').innerText = 'You eyes are fine!!!'
+            document.getElementById('cb').innerText = 'Normal color vision :)'
         }
 
         $("#card2").fadeIn();

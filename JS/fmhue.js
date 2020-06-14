@@ -104,11 +104,13 @@ document.querySelector(".fourthbutton").addEventListener('click',function(e){
   var scoreby = scorer2+scorer3;
   console.log('rg : '+scorerg);
   console.log('by: '+scoreby);
+  localStorage.set("rg",scorerg);
+  localStorage.set("by",scoreby);
 
   if(scorerg<=12){
     document.getElementById('scorerg').innerText = 'Severe'
   }
-  else if(scorerg<=30){
+  else if(scorerg<=35){
     document.getElementById('scorerg').innerText = 'Mild'
   }
   else{
@@ -119,7 +121,7 @@ document.querySelector(".fourthbutton").addEventListener('click',function(e){
   if(scoreby<=12){
     document.getElementById('scoreby').innerText = 'Severe'
   }
-  else if(scoreby<=30){
+  else if(scoreby<=35){
     document.getElementById('scoreby').innerText = 'Mild'
   }
   else{
