@@ -6,23 +6,22 @@ const ishi = (age<6)?localStorage.getItem("IshiKids"):localStorage.getItem("Ishi
 const tritan = localStorage.getItem("Tritan")
 const fmrg = localStorage.getItem("rg")
 const fmby = localStorage.getItem("by")
-if(bio=='mom' || bio[0]=='dad'){
-	document.querySelector('#mild').innerHTML=("Hey "+ name + ",<br>Considering that you're "+age+" year old " +gender+" and your medical history, not to mention your parents ("+ bio 
+if(bio=='mom' || bio=='dad'){
+	document.querySelector('#mild').innerHTML=("Hey "+ name + ",<br>Considering that you're a "+age+" year old " +gender+" and your medical history, not to mention your parents ("+ bio 
 	+") having some kind of CVD, we have come to the following conclusion:-<br> ")
-	document.querySelector('#moderate').innerHTML=("Hey "+ name + ",<br>Considering that you're "+age+" year old " +gender+" and your medical history, not to mention your parents ("+ bio 
+	document.querySelector('#moderate').innerHTML=("Hey "+ name + ",<br>Considering that you're a "+age+" year old " +gender+" and your medical history, not to mention your parents ("+ bio 
 	+") having some kind of CVD, we have come to the following conclusion:-<br> ")
-	document.querySelector('#severe').innerHTML=("Hey "+ name + ",<br>Considering that you're "+age+" year old " +gender+" and your medical history, not to mention your parents ("+ bio 
+	document.querySelector('#severe').innerHTML=("Hey "+ name + ",<br>Considering that you're a "+age+" year old " +gender+" and your medical history, not to mention your parents ("+ bio 
 	+") having some kind of CVD, we have come to the following conclusion:-<br> ")
 }else{
-	document.querySelector('#mild').innerHTML="Hey "+ name + ",<br>Considering that you're "+age+"year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
-	document.querySelector('#moderate').innerHTML="Hey "+ name + ",<br>Considering that you're "+age+"year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
-	document.querySelector('#severe').innerHTML="Hey "+ name + ",<br>Considering that you're "+age+"year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
+	document.querySelector('#mild').innerHTML="Hey "+ name + ",<br>Considering that you're a "+age+" year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
+	document.querySelector('#moderate').innerHTML="Hey "+ name + ",<br>Considering that you're a "+age+" year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
+	document.querySelector('#severe').innerHTML="Hey "+ name + ",<br>Considering that you're a "+age+" year old " +gender+" and your medical history, we have come to the following conclusion:-<br> "
 
 }
 
-var rgavg = parseFloat(ishi + fmrg)/2;
-var byavg = parseFloat(tritan + fmby)/2;
-
+var rgavg = (parseFloat(ishi) + parseFloat(fmrg))/2;
+var byavg = (parseFloat(tritan) + parseFloat(fmby))/2;
 
 setTimeout(function(){
 	document.querySelector('#calres').style.display = "none";
