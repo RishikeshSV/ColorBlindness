@@ -107,7 +107,7 @@ setTimeout(function(){
 
 $(function() {
 	setTimeout(function(){
-		var numberOfStars = 500;
+		var numberOfStars = 100;
 	
 		for (var i = 0; i < numberOfStars; i++) {
 		  $('.congrats').append('<div class="blob fa fa-star ' + i + '"></div>');
